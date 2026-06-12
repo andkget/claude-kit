@@ -44,6 +44,12 @@ have living docs in [docs/plans/](docs/plans/README.md).
 - Durable design decisions → an ADR in `docs/decisions/` (immutable; supersede, don't
   rewrite). Setup/run/test/process changes → update this file. Docs ride in the same PR as
   the code they describe.
+- **This project vs the shared kit:** project-specific things (architecture, concrete
+  commands, gotchas, decisions about *this* system) go in this repo. Anything **reusable
+  across projects** (a new/improved workflow command, a general convention, a template fix)
+  is contributed back to the shared kit **`andkget/claude-kit`**, then pulled via
+  `/plugin marketplace update`. Ask "would my other projects benefit?" — if yes, it belongs
+  in the kit, not here.
 
 > Full philosophy: the `project-conventions` skill (from the `workflow` plugin).
 

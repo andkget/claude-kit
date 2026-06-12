@@ -53,3 +53,20 @@ So the commands stay stack-agnostic, each project's `CLAUDE.md` declares: a proj
 description, `## Setup` / `## Run` / `## Run the tests` commands, the protected/never-commit
 list, and the base branch + git-by-risk policy. The commands read these instead of
 hardcoding a stack. `/scaffold` lays down a `CLAUDE.md` template with these sections.
+
+## Where a practice lives: this project vs the shared kit
+
+These conventions and commands come from a shared kit repo — **`andkget/claude-kit`** (a
+Claude Code marketplace + the `workflow` plugin). Two homes, decided by one question —
+*"would my other projects benefit from this?"*
+
+- **This project only** (its architecture, concrete commands, stack gotchas, decisions about
+  *this* system) → the local repo: `CLAUDE.md`, `docs/decisions/`, `docs/plans/`.
+- **Reusable across projects** (a new or improved workflow command, a generally-useful
+  convention, a better ADR/skeleton template, a fix to a house rule) → contribute it **back
+  to `claude-kit`**: edit there, commit, push; then `/plugin marketplace update` in projects
+  to pull it. Don't copy a reusable improvement into one project's files where it can't
+  travel.
+
+When a session produces something reusable, **say so and offer to land it in `claude-kit`**
+rather than letting it ossify in a single project.
