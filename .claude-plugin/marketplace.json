@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-kit",
+  "description": "Personal Claude Code kit: a reusable, stack-agnostic engineering workflow (ship / write-tests / sync-docs / feature-log / scaffold) plus an ADR + plans + git-by-risk convention set that travels across projects.",
+  "owner": {
+    "name": "Andrey Getmanskiy",
+    "email": "z7rxjz@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "workflow",
+      "description": "Stack-agnostic engineering workflow commands and conventions: the test-gated git/GitHub ship cycle, test-writing, ADR/CLAUDE.md doc sync, feature plan logging, a project scaffolder, and the house-rules skill.",
+      "author": {
+        "name": "Andrey Getmanskiy"
+      },
+      "category": "development",
+      "source": "./plugins/workflow"
+    }
+  ]
+}

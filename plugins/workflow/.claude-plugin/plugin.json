@@ -1,0 +1,9 @@
+{
+  "name": "workflow",
+  "version": "0.1.0",
+  "description": "Stack-agnostic engineering workflow: a test-gated git/GitHub ship cycle, test-writing, ADR/CLAUDE.md doc sync, feature plan logging, a project scaffolder, and a house-rules conventions skill. Commands read concrete commands (test/run/setup) from the project's CLAUDE.md instead of hardcoding a stack.",
+  "author": {
+    "name": "Andrey Getmanskiy",
+    "email": "z7rxjz@gmail.com"
+  }
+}
