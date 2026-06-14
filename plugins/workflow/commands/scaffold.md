@@ -13,7 +13,7 @@ Steps:
    cp -Rn "${CLAUDE_PLUGIN_ROOT}/templates/project-skeleton/." .
    ```
 
-   This adds (only where missing): `CLAUDE.md`, `.claude/settings.json`,
+   This adds (only where missing): `CLAUDE.md`, `AGENTS.md`, `.claude/settings.json`,
    `docs/decisions/README.md` + `docs/decisions/0000-adr-template.md`,
    `docs/plans/README.md`, and `docs/plans/archive/`.
 
@@ -33,5 +33,10 @@ Steps:
    can't infer. Do not invent commands — if a test runner isn't set up yet, leave a clearly
    marked TODO in `## Run the tests`.
 
+   `AGENTS.md`, by contrast, is **generic and needs no tailoring** — it orients a second
+   tool (Codex) and points it at `CLAUDE.md` + `docs/decisions/` for the specifics, so the
+   same file works in every project. Leave it as-is.
+
 4. Mention that `/ship`, `/write-tests`, `/sync-docs`, and `/feature-log` are now ready to
-   use, and that the `project-conventions` skill documents the house rules.
+   use, that the `project-conventions` skill documents the house rules, and that `AGENTS.md`
+   lets Codex be used for review / bug-fixes / token-backup (see `project-conventions`).

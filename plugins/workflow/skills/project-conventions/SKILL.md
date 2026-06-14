@@ -54,6 +54,26 @@ description, `## Setup` / `## Run` / `## Run the tests` commands, the protected/
 list, and the base branch + git-by-risk policy. The commands read these instead of
 hardcoding a stack. `/scaffold` lays down a `CLAUDE.md` template with these sections.
 
+## Two coding tools: Claude Code primary, Codex for review + backup
+
+These projects are built **Claude-Code-first** — Claude Code is the primary tool and reads
+`CLAUDE.md`. A second tool, **Codex**, is kept as a **token-backup** (for when the Claude
+Code usage window is spent) and for its strengths: **code-review** (run it in a read-only
+sandbox — a different model catches the author model's blind spots) and **localized
+bug-fixes**.
+
+- **`AGENTS.md` orients Codex; `CLAUDE.md` stays the single source of truth.** `/scaffold`
+  lays down a **generic, project-neutral `AGENTS.md`** (identical in every repo) that frames
+  Codex's role and points it at `CLAUDE.md` + `docs/decisions/` for the specifics. There is
+  **no parallel project doc to keep in sync** — Codex reads the real `CLAUDE.md` (ignoring
+  the Claude-only parts: slash commands, skills, the memory system).
+- **`CLAUDE.md` is never modified for Codex's sake.** Claude Code reads `AGENTS.md` only as
+  a fallback when no `CLAUDE.md` exists, so adding `AGENTS.md` is invisible to Claude Code —
+  zero risk to the primary workflow.
+- **Hand-off rides the living plan doc.** The active `docs/plans/<feature>.md` is the
+  cross-tool hand-off (read before starting, update before stopping); **git is the
+  boundary** — commit before switching tools.
+
 ## Where a practice lives: this project vs the shared kit
 
 These conventions and commands come from a shared kit repo — **`andkget/claude-kit`** (a

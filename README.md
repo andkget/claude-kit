@@ -25,8 +25,16 @@ The split it enforces:
 - **Skill** `project-conventions` — the house rules: ADR discipline, living plan docs,
   docs-ship-with-code, git-by-risk, test discipline, and the `CLAUDE.md` contract.
 - **Template** `templates/project-skeleton/` — what `/scaffold` copies: `CLAUDE.md`,
-  `.claude/settings.json` (generic git allowlist), `docs/decisions/` (README + ADR template),
-  `docs/plans/` (README + `archive/`).
+  `AGENTS.md` (generic, orients Codex), `.claude/settings.json` (generic git allowlist),
+  `docs/decisions/` (README + ADR template), `docs/plans/` (README + `archive/`).
+
+## Two coding tools
+
+Projects are built **Claude-Code-first** (Claude Code reads `CLAUDE.md`). The generic
+`AGENTS.md` keeps **Codex** usable as a token-backup and for code-review / bug-fixes — it
+points Codex at the project's `CLAUDE.md` + `docs/decisions/`, so there's a single source
+of truth and `CLAUDE.md` is never touched for Codex's sake. See the `project-conventions`
+skill for the full house rule.
 
 ## Install
 

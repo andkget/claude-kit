@@ -44,6 +44,9 @@ have living docs in [docs/plans/](docs/plans/README.md).
 - Durable design decisions → an ADR in `docs/decisions/` (immutable; supersede, don't
   rewrite). Setup/run/test/process changes → update this file. Docs ride in the same PR as
   the code they describe.
+- **Two tools:** Claude Code is primary and reads this file; `AGENTS.md` orients Codex
+  (used for review + bug-fixes + token-backup) and points it back here — see
+  `project-conventions`.
 - **This project vs the shared kit:** project-specific things (architecture, concrete
   commands, gotchas, decisions about *this* system) go in this repo. Anything **reusable
   across projects** (a new/improved workflow command, a general convention, a template fix)
