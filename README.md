@@ -36,6 +36,28 @@ points Codex at the project's `CLAUDE.md` + `docs/decisions/`, so there's a sing
 of truth and `CLAUDE.md` is never touched for Codex's sake. See the `project-conventions`
 skill for the full house rule.
 
+### Getting started with Codex
+
+One-time, per machine: install the Codex CLI and sign in (Codex is included in a ChatGPT
+Plus/Pro subscription — no separate API key). Then, in any repo that has been `/scaffold`ed:
+
+```
+codex            # run in the repo root; it auto-reads AGENTS.md
+```
+
+When to reach for it:
+
+- **Code review** — when a branch/diff is ready, review it in a **read-only sandbox** so
+  Codex looks without editing. A second model catches blind spots the author model missed.
+- **Localized bug-fix** — when the bug is understood; keep the diff narrow.
+- **Token-backup** — when the Claude Code usage window is spent and you want to keep going.
+
+Switching tools mid-feature: the active `docs/plans/<feature>.md` is the hand-off — read it
+before starting, update it (state + next steps) before stopping. **Git is the boundary:**
+commit (and push, or use `git worktree` for parallel work) before you switch, so the next
+tool picks up clean state. Pick the model by weight — a small/fast Codex model for chores,
+the strongest for hard design — the same way you'd pick Opus vs. a lighter model.
+
 ## Install
 
 From any project (or globally), register this repo as a marketplace, then install the plugin.
