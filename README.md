@@ -23,7 +23,8 @@ The split it enforces:
     `docs/plans/*.md`.
   - `/scaffold` — lay the reusable docs skeleton + a `CLAUDE.md` template into a repo.
 - **Skill** `project-conventions` — the house rules: ADR discipline, living plan docs,
-  docs-ship-with-code, git-by-risk, test discipline, and the `CLAUDE.md` contract.
+  docs-ship-with-code, git-by-risk, test discipline, gates that apply to the agent's output
+  but never to the human's edits, and the `CLAUDE.md` contract.
 - **Template** `templates/project-skeleton/` — what `/scaffold` copies: `CLAUDE.md`,
   `AGENTS.md` (generic, orients Codex), `.claude/settings.json` (generic git allowlist),
   `docs/decisions/` (README + ADR template), `docs/plans/` (README + `archive/`).

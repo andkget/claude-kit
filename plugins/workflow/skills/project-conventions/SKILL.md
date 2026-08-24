@@ -1,6 +1,6 @@
 ---
 name: project-conventions
-description: The portable engineering house rules behind the workflow commands — ADR discipline, living plan docs, docs-ship-with-code, git ceremony scaled by risk, and test discipline. Load when deciding how to document a decision, structure docs, run the git/PR cycle, or write tests, or when a project's CLAUDE.md references these conventions.
+description: The portable engineering house rules behind the workflow commands — ADR discipline, living plan docs, docs-ship-with-code, git ceremony scaled by risk, test discipline, and the scope of automated quality gates. Load when deciding how to document a decision, structure docs, run the git/PR cycle, write tests, or judge whether a project's gate applies to text the user wrote themselves, or when a project's CLAUDE.md references these conventions.
 ---
 
 # Project conventions (house rules)
@@ -46,6 +46,23 @@ git-by-risk). Use `/sync-docs` to promote durable decisions into ADRs / CLAUDE.m
   sandbox, per the project's `CLAUDE.md`).
 - If a test reveals a real bug, fix the code — never weaken the assertion to make it green.
   Add meaningful tests, not padding.
+
+## Quality gates apply to the agent's output, not the human's edits
+
+Some projects run an automated gate over *generated content* — a prose linter, a style
+checklist, a script the agent must re-run until it exits clean. That gate exists to keep the
+**agent's** drafts honest. It has no authority over text the human wrote.
+
+- The human pastes their own version of the artifact, or edits the file by hand → **take it
+  as-is**. At most fix outright typos and grammar, silently.
+- Do **not** run the gate over their text, do not report its complaints back to them, and
+  never edit their words to satisfy a metric — no padding to reach a minimum length, no
+  restoring content they deliberately cut.
+- A targeted rewrite they asked for ("redo the second paragraph") is the agent's text again,
+  so the gate applies to it.
+
+A human edit is a decision, not a draft. A gate that starts correcting the author has
+inverted who works for whom, and it reads as the tool arguing with its owner.
 
 ## The CLAUDE.md contract
 
