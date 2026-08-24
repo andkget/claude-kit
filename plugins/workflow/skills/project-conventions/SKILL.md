@@ -101,9 +101,11 @@ Claude Code marketplace + the `workflow` plugin). Two homes, decided by one ques
   *this* system) → the local repo: `CLAUDE.md`, `docs/decisions/`, `docs/plans/`.
 - **Reusable across projects** (a new or improved workflow command, a generally-useful
   convention, a better ADR/skeleton template, a fix to a house rule) → contribute it **back
-  to `claude-kit`**: edit there, commit, push; then `/plugin marketplace update` in projects
-  to pull it. Don't copy a reusable improvement into one project's files where it can't
-  travel.
+  to `claude-kit`**: edit there, **bump the plugin's `version` in the same commit** (the
+  installed-plugin cache is keyed by version — without a bump, projects keep serving the old
+  files), push, then `claude plugin marketplace update <marketplace>` and
+  `claude plugin update <plugin>@<marketplace>` to pull it. Don't copy a reusable improvement
+  into one project's files where it can't travel.
 
 When a session produces something reusable, **say so and offer to land it in `claude-kit`**
 rather than letting it ossify in a single project.

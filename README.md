@@ -92,5 +92,18 @@ Then fill in the bracketed sections of the generated `CLAUDE.md` (project descri
 ## Accumulating practices
 
 This repo is the place rules accumulate: refine a command or convention here, commit, and
-every project that has the plugin installed picks it up (re-run `/plugin marketplace update`
-to pull the latest). Keep project-specific details in each repo's `CLAUDE.md`, not here.
+every project that has the plugin installed picks it up. Keep project-specific details in
+each repo's `CLAUDE.md`, not here.
+
+**Bump `plugins/workflow/.claude-plugin/plugin.json` in the same commit as the change.** The
+installed-plugin cache (`~/.claude/plugins/cache/<marketplace>/<plugin>/<version>/`) is keyed
+by that version: without a bump, projects keep serving the old files no matter how many times
+the marketplace is refreshed. Then, per machine:
+
+```bash
+claude plugin marketplace update claude-kit   # refresh the marketplace mirror
+claude plugin update workflow@claude-kit      # install the new version (restart to apply)
+```
+
+`/plugin` is the interactive menu and takes no arguments — the CLI commands above are what
+actually pull a change through.
