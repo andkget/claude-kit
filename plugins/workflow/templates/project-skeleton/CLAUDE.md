@@ -38,7 +38,8 @@ have living docs in [docs/plans/](docs/plans/README.md).
 - **Branch naming:** `feature/<task>`, `fix/<task>`, `docs/<task>`.
 - **Git ceremony by risk:** code changes → branch + PR, squash-merge, auto-merge once the
   test gate is green and the diff is clean; docs-only/trivial → straight to the base branch.
-  Never force-push `main`; `git push` asks for confirmation.
+  Never force-push `main` — `.claude/settings.json` denies it outright; `git push` asks for
+  confirmation.
 - **Protected / never-commit:** [`.env`, credentials, local databases, large artifacts — list
   the concrete paths/patterns for this project]. These stay gitignored and are never staged.
 - Durable design decisions → an ADR in `docs/decisions/` (immutable; supersede, don't

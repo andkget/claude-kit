@@ -35,8 +35,9 @@ git-by-risk). Use `/sync-docs` to promote durable decisions into ADRs / CLAUDE.m
   diff is risky, tests are red/skipped, or it touches something irreversible/shared.
 - **Docs-only / trivial changes** → may go straight to the base branch per the project's
   stated policy, no PR ceremony.
-- Never force-push the base branch. Push prompts for confirmation by default. Stage files by
-  name, never blind `git add -A`; never commit the project's protected/never-commit files.
+- Never force-push the base branch — the scaffolded `.claude/settings.json` denies it rather
+  than leaving it to prose. Push prompts for confirmation by default. Stage files by name,
+  never blind `git add -A`; never commit the project's protected/never-commit files.
 
 ## Test discipline
 
@@ -84,9 +85,9 @@ bug-fixes**.
   Codex's role and points it at `CLAUDE.md` + `docs/decisions/` for the specifics. There is
   **no parallel project doc to keep in sync** — Codex reads the real `CLAUDE.md` (ignoring
   the Claude-only parts: slash commands, skills, the memory system).
-- **`CLAUDE.md` is never modified for Codex's sake.** Claude Code reads `AGENTS.md` only as
-  a fallback when no `CLAUDE.md` exists, so adding `AGENTS.md` is invisible to Claude Code —
-  zero risk to the primary workflow.
+- **`CLAUDE.md` is never modified for Codex's sake.** Claude Code reads `CLAUDE.md`, **not**
+  `AGENTS.md` — the file is invisible to it entirely, so adding one costs the primary
+  workflow nothing.
 - **Hand-off rides the living plan doc.** The active `docs/plans/<feature>.md` is the
   cross-tool hand-off (read before starting, update before stopping); **git is the
   boundary** — commit before switching tools.

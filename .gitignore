@@ -1,1 +1,8 @@
 .DS_Store
+
+# Eval runs write their scored results here (see plugins/workflow/evals/).
+plugins/workflow/evals/results/
+
+# Personal, machine-local overrides — never shared.
+CLAUDE.local.md
+.claude/settings.local.json

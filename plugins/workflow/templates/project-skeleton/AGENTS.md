@@ -1,7 +1,7 @@
 # AGENTS.md
 
-> **Claude Code is the primary tool on this project and reads `CLAUDE.md`** (it ignores
-> this file while `CLAUDE.md` exists). This file orients **Codex**, used here as a
+> **Claude Code is the primary tool on this project and reads `CLAUDE.md`** (it does not
+> read this file at all). This file orients **Codex**, used here as a
 > token-backup and for code-review / bug-fixes. It is generic and the same in every
 > project — the project's details live elsewhere.
 
