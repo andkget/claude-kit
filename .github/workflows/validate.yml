@@ -1,0 +1,31 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate marketplace and plugin manifests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # The gate needs no Claude login and no secrets — `plugin validate` is a
+      # local schema/structure check over the manifests, commands, and skills.
+      - name: Install the Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code@2.1.273
+
+      - name: Validate the marketplace manifest
+        run: claude plugin validate . --strict
+
+      - name: Validate the workflow plugin
+        run: claude plugin validate ./plugins/workflow --strict
